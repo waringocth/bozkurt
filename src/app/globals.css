@@ -1,26 +1,185 @@
 @import "tailwindcss";
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
+/* ─── Accordion keyframes (Radix UI) ───────────────────────────────────────── */
+@keyframes accordion-down {
+  from { height: 0; overflow: hidden; }
+  to   { height: var(--radix-accordion-content-height); overflow: hidden; }
 }
+@keyframes accordion-up {
+  from { height: var(--radix-accordion-content-height); overflow: hidden; }
+  to   { height: 0; overflow: hidden; }
+}
+
+/* ─── Fade-up entrance animation (CSS-only, no JS needed) ──────────────────── */
+@keyframes fade-up {
+  from { opacity: 0; transform: translateY(20px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+/* ─────────────────────────────────────────────────────────────────────────────
+   BOZKURT ÇİLİNGİR — Design Token System
+   Two brand palettes share a single neutral base so both divisions feel
+   like one cohesive brand:
+     • Navy  → "Çilingir" (residential / general locksmith)
+     • Amber → "Oto Anahtarcı" (automotive locksmith)
+   ───────────────────────────────────────────────────────────────────────────── */
 
 @theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
+  /* ── Typography ─────────────────────────────────────────────────────────── */
   --font-sans: var(--font-geist-sans);
   --font-mono: var(--font-geist-mono);
+
+  /* ── Accordion animations ───────────────────────────────────────────────── */
+  --animate-accordion-down: accordion-down 0.22s ease-out;
+  --animate-accordion-up:   accordion-up   0.22s ease-out;
+
+  /* ── Hero entrance ──────────────────────────────────────────────────────── */
+  --animate-fade-up: fade-up 0.6s ease-out both;
+
+  /* ── Neutral / Base (shared across both divisions) ──────────────────────── */
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-muted:      var(--muted);
+  --color-muted-fg:   var(--muted-foreground);
+  --color-border:     var(--border);
+  --color-ring:       var(--ring);
+  --color-card:       var(--card);
+  --color-card-fg:    var(--card-foreground);
+
+  /* ── shadcn/ui semantic tokens ──────────────────────────────────────────── */
+  --color-primary:          var(--primary);
+  --color-primary-fg:       var(--primary-foreground);
+  --color-secondary:        var(--secondary);
+  --color-secondary-fg:     var(--secondary-foreground);
+  --color-accent:           var(--accent);
+  --color-accent-fg:        var(--accent-foreground);
+  --color-destructive:      var(--destructive);
+  --color-destructive-fg:   var(--destructive-foreground);
+  --color-input:            var(--input);
+  --color-popover:          var(--popover);
+  --color-popover-fg:       var(--popover-foreground);
+
+  /* ── Navy scale — Çilingir (residential) ───────────────────────────────── */
+  --color-navy-950: oklch(17% 0.045 255);   /* deepest — hero bg */
+  --color-navy-900: oklch(21% 0.055 255);
+  --color-navy-800: oklch(28% 0.065 255);
+  --color-navy-700: oklch(35% 0.075 255);
+  --color-navy-600: oklch(43% 0.085 255);
+  --color-navy-500: oklch(52% 0.090 255);
+  --color-navy-400: oklch(62% 0.085 255);
+  --color-navy-300: oklch(72% 0.070 255);
+  --color-navy-200: oklch(83% 0.045 255);
+  --color-navy-100: oklch(92% 0.022 255);
+  --color-navy-50:  oklch(97% 0.010 255);
+
+  /* ── Amber scale — Oto Anahtarcı (automotive) ──────────────────────────── */
+  --color-amber-950: oklch(20% 0.065 60);   /* deepest */
+  --color-amber-900: oklch(28% 0.085 55);
+  --color-amber-800: oklch(36% 0.110 52);
+  --color-amber-700: oklch(46% 0.140 50);
+  --color-amber-600: oklch(57% 0.165 48);
+  --color-amber-500: oklch(70% 0.185 47);   /* primary CTA amber */
+  --color-amber-400: oklch(80% 0.175 47);
+  --color-amber-300: oklch(88% 0.145 50);
+  --color-amber-200: oklch(93% 0.100 52);
+  --color-amber-100: oklch(97% 0.055 55);
+  --color-amber-50:  oklch(99% 0.020 60);
+
+  /* ── Border radius ──────────────────────────────────────────────────────── */
+  --radius: 0.625rem;
+  --radius-sm: calc(var(--radius) - 0.25rem);
+  --radius-md: var(--radius);
+  --radius-lg: calc(var(--radius) + 0.25rem);
+  --radius-xl: calc(var(--radius) + 0.5rem);
 }
 
+/* ─────────────────────────────────────────────────────────────────────────────
+   CSS CUSTOM PROPERTIES
+   Light mode (default)
+   ───────────────────────────────────────────────────────────────────────────── */
+:root {
+  /* Neutral base */
+  --background:          oklch(100% 0 0);
+  --foreground:          oklch(14% 0.02 255);
+  --muted:               oklch(96% 0.005 255);
+  --muted-foreground:    oklch(55% 0.015 255);
+  --border:              oklch(91% 0.008 255);
+  --input:               oklch(91% 0.008 255);
+  --ring:                oklch(52% 0.090 255);
+  --card:                oklch(100% 0 0);
+  --card-foreground:     oklch(14% 0.02 255);
+  --popover:             oklch(100% 0 0);
+  --popover-foreground:  oklch(14% 0.02 255);
+
+  /* shadcn/ui semantic — defaults to navy (Çilingir) */
+  --primary:             oklch(28% 0.065 255);   /* navy-800 */
+  --primary-foreground:  oklch(100% 0 0);
+  --secondary:           oklch(96% 0.005 255);
+  --secondary-foreground: oklch(14% 0.02 255);
+  --accent:              oklch(96% 0.005 255);
+  --accent-foreground:   oklch(14% 0.02 255);
+  --destructive:         oklch(58% 0.22 25);
+  --destructive-foreground: oklch(100% 0 0);
+}
+
+/* ─────────────────────────────────────────────────────────────────────────────
+   Dark mode
+   ───────────────────────────────────────────────────────────────────────────── */
 @media (prefers-color-scheme: dark) {
   :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+    --background:          oklch(14% 0.02 255);
+    --foreground:          oklch(97% 0.005 255);
+    --muted:               oklch(21% 0.025 255);
+    --muted-foreground:    oklch(65% 0.015 255);
+    --border:              oklch(28% 0.030 255);
+    --input:               oklch(28% 0.030 255);
+    --ring:                oklch(62% 0.085 255);
+    --card:                oklch(18% 0.022 255);
+    --card-foreground:     oklch(97% 0.005 255);
+    --popover:             oklch(18% 0.022 255);
+    --popover-foreground:  oklch(97% 0.005 255);
+
+    --primary:             oklch(72% 0.070 255);   /* navy-300 on dark */
+    --primary-foreground:  oklch(14% 0.02 255);
+    --secondary:           oklch(21% 0.025 255);
+    --secondary-foreground: oklch(97% 0.005 255);
+    --accent:              oklch(21% 0.025 255);
+    --accent-foreground:   oklch(97% 0.005 255);
+    --destructive:         oklch(55% 0.20 25);
+    --destructive-foreground: oklch(100% 0 0);
   }
+}
+
+/* ─────────────────────────────────────────────────────────────────────────────
+   Division-scoped overrides
+   Wrap a section in [data-division="oto-anahtarci"] to flip the primary
+   color to amber without changing any component code.
+   ───────────────────────────────────────────────────────────────────────────── */
+[data-division="oto-anahtarci"] {
+  --primary:            oklch(57% 0.165 48);   /* amber-600 */
+  --primary-foreground: oklch(100% 0 0);
+  --ring:               oklch(57% 0.165 48);
+}
+
+[data-division="cilingir"] {
+  --primary:            oklch(28% 0.065 255);  /* navy-800 */
+  --primary-foreground: oklch(100% 0 0);
+  --ring:               oklch(52% 0.090 255);
+}
+
+/* ─────────────────────────────────────────────────────────────────────────────
+   Base styles
+   ───────────────────────────────────────────────────────────────────────────── */
+*,
+*::before,
+*::after {
+  border-color: var(--border);
 }
 
 body {
   background: var(--background);
   color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: var(--font-sans, system-ui, sans-serif);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
 }
