@@ -6,6 +6,8 @@ import CallButton from "@/components/CallButton";
 
 export interface FooterProps {
   address?: string;
+  cilingirPhone: string;
+  otoAnahtarciPhone: string;
 }
 
 // ─── Static data ──────────────────────────────────────────────────────────────

@@ -28,7 +28,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
 
     district.neighborhoods.forEach((nbhd) => {
       // Scale priority based on population (max around ~115,000)
-      let priority = 0.5 + (nbhd.population / 120000) * 0.3
+      let priority = 0.5 + ((nbhd.population ?? 0) / 120000) * 0.3
       priority = Math.min(Math.max(priority, 0.5), 0.8) // Clamp between 0.5 and 0.8
       
       routes.push({
@@ -49,7 +49,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
 
     district.neighborhoods.forEach((nbhd) => {
       // Scale priority based on population
-      let priority = 0.5 + (nbhd.population / 120000) * 0.3
+      let priority = 0.5 + ((nbhd.population ?? 0) / 120000) * 0.3
       priority = Math.min(Math.max(priority, 0.5), 0.8)
       
       routes.push({

@@ -10,6 +10,8 @@ import { cn } from "@/lib/utils";
 // ─── Types ────────────────────────────────────────────────────────────────────
 
 export interface HeaderProps {
+  cilingirPhone: string;
+  otoAnahtarciPhone: string;
 }
 
 type Division = "cilingir" | "oto-anahtarci";
