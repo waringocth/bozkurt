@@ -10,6 +10,10 @@ import Breadcrumb from "@/components/Breadcrumb";
 import MobileBottomBar from "@/components/MobileBottomBar";
 import CallButton from "@/components/CallButton";
 import WhatsAppButton from "@/components/WhatsAppButton";
+import WhyChooseUs from "@/components/WhyChooseUs";
+import ServiceProcess from "@/components/ServiceProcess";
+import Testimonials from "@/components/Testimonials";
+import { otoTestimonials } from "@/lib/data/testimonials-oto";
 
 // ─── Constants ────────────────────────────────────────────────────────────────
 
@@ -175,10 +179,7 @@ export default async function DistrictOtoPage(props: PageProps<"/oto-anahtarci/[
               </h1>
 
               <p className="mt-5 text-lg leading-relaxed text-amber-200/75">
-                {district.name} ilçesinde kayıp araç anahtarı yapımı, immobilizer programlama
-                ve hasarsız araç kapı açma için teknisyenimiz{" "}
-                <strong className="text-white">adresinize geliyor</strong>.
-                Çekiciye gerek kalmadan {district.neighborhoodCount} mahallede 7/24 çözüm.
+                {district.name} ilçesi sınırları içinde aracınızın anahtarını kaybettiğinizde veya yedek anahtar yaptırmak istediğinizde, sanayi sitesine veya servise gitmenize gerek yok. İmmobilizer programlama, çipli anahtar kopyalama ve hasarsız oto kapı açma hizmetlerimiz için tam donanımlı teknisyenimiz doğrudan <strong className="text-white">bulunduğunuz adrese geliyor</strong>. İster {district.name} merkezde, ister çevre mahallelerde olun; {district.neighborhoodCount} mahallenin tamamında çekici masrafı ödemeden 7/24 hızlı ve garantili çözüm sunuyoruz.
               </p>
 
               <ul className="mt-5 flex flex-wrap gap-3 text-sm text-amber-200/70">
@@ -210,6 +211,9 @@ export default async function DistrictOtoPage(props: PageProps<"/oto-anahtarci/[
           </div>
         </div>
       </section>
+
+      {/* ── WHY CHOOSE US ──────────────────────────────────────────────── */}
+      <WhyChooseUs districtName={district.name} division="oto-anahtarci" />
 
       {/* ── NEIGHBOURHOOD GRID ─────────────────────────────────────────── */}
       {district.neighborhoods.length > 0 && (
@@ -259,8 +263,29 @@ export default async function DistrictOtoPage(props: PageProps<"/oto-anahtarci/[
         </section>
       )}
 
+      {/* ── SERVICE PROCESS ────────────────────────────────────────────── */}
+      <ServiceProcess districtName={district.name} division="oto-anahtarci" />
+
       {/* ── SERVICE GRID ───────────────────────────────────────────────── */}
       <ServiceGridOto />
+
+      {/* ── TESTIMONIALS (COMPACT) ─────────────────────────────────────── */}
+      {(() => {
+        const localTestimonials = otoTestimonials.filter(
+          (t) => t.districtSlug === district.slug
+        );
+        if (localTestimonials.length > 0) {
+          return (
+            <Testimonials
+              division="oto-anahtarci"
+              testimonials={localTestimonials.slice(0, 3)}
+              compact
+              districtName={district.name}
+            />
+          );
+        }
+        return null;
+      })()}
 
       {/* ── CTA BANNER ────────────────────────────────────────────────── */}
       <CtaBannerOto

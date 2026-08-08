@@ -92,7 +92,7 @@ export default function FaqSectionOto() {
           <Accordion type="single" collapsible className="w-full">
             {faqs.map((faq) => (
               <AccordionItem key={faq.id} value={faq.id}>
-                <AccordionTrigger className="hover:text-amber-700 [&[data-state=open]]:text-amber-700">
+                <AccordionTrigger className="text-amber-950 hover:text-amber-700 [&[data-state=open]]:text-amber-700">
                   {faq.question}
                 </AccordionTrigger>
                 <AccordionContent>{faq.answer}</AccordionContent>

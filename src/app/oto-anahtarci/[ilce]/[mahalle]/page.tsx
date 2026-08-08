@@ -269,21 +269,23 @@ export default async function NeighborhoodOtoPage(
         <div className="mx-auto max-w-3xl px-4 sm:px-6 lg:px-8">
           <div className="rounded-2xl border border-amber-200 bg-white p-8">
             <h2 className="mb-4 text-xl font-bold text-amber-950">
-              {neighborhood.name}&apos;nde Araç Başında Hizmet
+              {district.name} {neighborhood.name} Mobil Oto Anahtarcı
             </h2>
             <p className="leading-relaxed text-[var(--muted-foreground)]">
-              {district.name} ilçesinde yer alan{" "}
+              {district.name} ilçesinin en yoğun bölgelerinden biri olan{" "}
               <strong className="text-amber-900">{neighborhood.name}</strong>{" "}
-              bölgesinde aracınızın anahtarını mı kaybettiniz? Otomobilinizi servise veya 
-              sanayiye çektirmenize gerek kalmadan teknisyenimiz bulunduğunuz konuma gelir. 
-              Gelişmiş OBD programlama cihazlarımızla, tüm işlemleri aracınızın başında tamamlıyoruz.
+              sınırları içinde aracınızın anahtarını mı kaybettiniz veya kilitli mi kaldınız? 
+              Otomobilinizi servise veya sanayiye çektirmenize, çekici masrafı ödemenize gerek kalmadan 
+              tam donanımlı mobil servis aracımızla doğrudan bulunduğunuz konuma geliyoruz. 
+              Gelişmiş OBD programlama cihazlarımız sayesinde, tüm işlemleri {neighborhood.name} 
+              içindeki aracınızın başında eksiksiz olarak tamamlıyoruz.
             </p>
             <p className="mt-4 leading-relaxed text-[var(--muted-foreground)]">
               Kayıp anahtar kopyalama, immobilizer çip eşleştirme, bagaj kapağı açma veya
-              kontak arızaları için{" "}
+              kontak arızaları onarımı gibi tüm profesyonel hizmetlerimiz için{" "}
               <strong className="text-amber-900">{district.name}</strong> ilçesi{" "}
-              {neighborhood.name} mahallesi kapsama alanımızdadır. Zaman ve çekici 
-              maliyetinden tasarruf etmek için bize ulaşabilirsiniz.
+              {neighborhood.name} öncelikli kapsama alanımızdadır. Zaman, stres ve çekici 
+              maliyetinden büyük ölçüde tasarruf etmek için 7/24 kesintisiz hizmet veren ekibimize ulaşabilirsiniz.
             </p>
           </div>
         </div>
@@ -300,6 +302,20 @@ export default async function NeighborhoodOtoPage(
           className="bg-white py-16 sm:py-20"
         >
           <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+            {/* New Coverage Card */}
+            <div className="mb-12 rounded-2xl border border-amber-100 bg-amber-50/50 p-8 text-center sm:p-10">
+              <h3 className="mb-4 text-2xl font-bold text-amber-950">
+                {neighborhood.name} ve Çevresinde Geniş Hizmet Ağı
+              </h3>
+              <p className="mx-auto max-w-2xl text-[var(--muted-foreground)]">
+                Bozkurt Oto Anahtarcı olarak sadece {neighborhood.name} ile sınırlı kalmıyor, {district.name} ilçesindeki komşu mahallelere de aynı hızda servis yönlendiriyoruz. 
+                <strong className="mx-1 text-amber-800">
+                  {nearbyNeighborhoods.map((n) => n.name).join(", ")}
+                </strong>
+                gibi çevre bölgelerde de çağrınızdan hemen sonra yola çıkıyor, aracınızın bulunduğu konuma hızla ulaşıyoruz.
+              </p>
+            </div>
+
             <div className="mb-10 text-center">
               <h2
                 id="nearby-heading"

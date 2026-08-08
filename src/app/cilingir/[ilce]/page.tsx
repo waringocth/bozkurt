@@ -10,6 +10,10 @@ import Breadcrumb from "@/components/Breadcrumb";
 import MobileBottomBar from "@/components/MobileBottomBar";
 import CallButton from "@/components/CallButton";
 import WhatsAppButton from "@/components/WhatsAppButton";
+import WhyChooseUs from "@/components/WhyChooseUs";
+import ServiceProcess from "@/components/ServiceProcess";
+import Testimonials from "@/components/Testimonials";
+import { cilingirTestimonials } from "@/lib/data/testimonials-cilingir";
 
 // ─── Constants ────────────────────────────────────────────────────────────────
 
@@ -175,10 +179,7 @@ export default async function DistrictPage(props: PageProps<"/cilingir/[ilce]">)
               </h1>
 
               <p className="mt-5 text-lg leading-relaxed text-navy-200/75">
-                {district.name} ilçesinde kapı açma, kilit değişimi ve tüm çilingir
-                ihtiyaçlarınız için{" "}
-                <strong className="text-white">15 dakika içinde</strong> adresinizde
-                oluyoruz. {district.neighborhoodCount} mahallede 7/24 hizmet.
+                {district.name} ilçesi genelinde kapı açma, kilit değişimi, çelik kapı tamiri ve kasa açma gibi tüm profesyonel çilingir ihtiyaçlarınız için uzman kadromuzla yanınızdayız. İster gece yarısı acil bir durumda, ister planlı bir kilit yenileme işleminde olun, bölgeye hakim gezici araçlarımızla <strong className="text-white">en fazla 15 dakika içinde</strong> adresinize ulaşıyoruz. {district.name}'un en hareketli noktalarından en sakin mahallelerine kadar toplam {district.neighborhoodCount} mahallede kesintisiz, hasarsız ve garantili 7/24 hizmet sunuyoruz.
               </p>
 
               <ul className="mt-5 flex flex-wrap gap-3 text-sm text-navy-200/60">
@@ -210,6 +211,9 @@ export default async function DistrictPage(props: PageProps<"/cilingir/[ilce]">)
           </div>
         </div>
       </section>
+
+      {/* ── WHY CHOOSE US ──────────────────────────────────────────────── */}
+      <WhyChooseUs districtName={district.name} division="cilingir" />
 
       {/* ── NEIGHBOURHOOD GRID ─────────────────────────────────────────── */}
       {district.neighborhoods.length > 0 && (
@@ -259,8 +263,29 @@ export default async function DistrictPage(props: PageProps<"/cilingir/[ilce]">)
         </section>
       )}
 
+      {/* ── SERVICE PROCESS ────────────────────────────────────────────── */}
+      <ServiceProcess districtName={district.name} division="cilingir" />
+
       {/* ── SERVICE GRID ───────────────────────────────────────────────── */}
       <ServiceGridCilingir />
+
+      {/* ── TESTIMONIALS (COMPACT) ─────────────────────────────────────── */}
+      {(() => {
+        const localTestimonials = cilingirTestimonials.filter(
+          (t) => t.districtSlug === district.slug
+        );
+        if (localTestimonials.length > 0) {
+          return (
+            <Testimonials
+              division="cilingir"
+              testimonials={localTestimonials.slice(0, 3)}
+              compact
+              districtName={district.name}
+            />
+          );
+        }
+        return null;
+      })()}
 
       {/* ── CTA BANNER ────────────────────────────────────────────────── */}
       <CtaBannerCilingir

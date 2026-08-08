@@ -269,22 +269,24 @@ export default async function NeighborhoodPage(
         <div className="mx-auto max-w-3xl px-4 sm:px-6 lg:px-8">
           <div className="rounded-2xl border border-slate-200 bg-slate-50 p-8">
             <h2 className="mb-4 text-xl font-bold text-navy-950">
-              {neighborhood.name}&apos;nde Çilingir Hizmeti
+              {district.name} {neighborhood.name} Çilingir Hizmeti
             </h2>
             <p className="leading-relaxed text-[var(--muted-foreground)]">
-              {district.name} ilçesinde yer alan{" "}
-              <strong className="text-navy-900">{neighborhood.name}</strong>&apos;nde
-              yaşayanlar için 7/24 çilingir hizmeti sunuyoruz. Anahtarınızı evde
-              unuttunuz, kapınız kilitli kaldı veya kilit değişimine ihtiyaç mı
-              duydunuz? Tek bir telefon yeterli — ustamız{" "}
-              {neighborhood.name}&apos;ne en kısa sürede ulaşır.
+              {district.name} ilçesinin en önemli noktalarından biri olan{" "}
+              <strong className="text-navy-900">{neighborhood.name}</strong> sakinleri
+              için 7/24 kesintisiz çilingir desteği sunuyoruz. Gecenin bir yarısı anahtarınızı evde
+              unuttuğunuzda, kapınız kilitli kaldığında veya acil kilit değişimine ihtiyaç duyduğunuzda, 
+              {district.name} genelinde devriye gezen araçlarımız hızla yanınızda olur. 
+              Tek bir telefonla ustamız {neighborhood.name} sınırları içindeki adresinize 
+              sadece dakikalar içinde ulaşır.
             </p>
             <p className="mt-4 leading-relaxed text-[var(--muted-foreground)]">
-              Kapı açma, kilit değişimi, çelik kapı tamiri ve kasa açma dahil
-              tüm çilingir hizmetleri için{" "}
+              Kapı açma, yüksek güvenlikli kilit değişimi, çelik kapı tamiri ve kasa açma dahil
+              tüm profesyonel çilingir hizmetlerimiz için{" "}
               <strong className="text-navy-900">{district.name}</strong> ilçesi{" "}
-              {neighborhood.name} mahallesi bölgemiz dahilindedir. Tüm işlemler
-              yerinde, hasarsız ve şeffaf fiyatla gerçekleştirilir.
+              {neighborhood.name} öncelikli hizmet bölgemiz dahilindedir. İster {neighborhood.name} meydanında 
+              bir işyeriniz, ister ara sokaklarda bir eviniz olsun; tüm işlemlerimiz 
+              yerinde, tamamen hasarsız ve sürpriz masraflar olmaksızın şeffaf fiyat garantisiyle gerçekleştirilir.
             </p>
           </div>
         </div>
@@ -301,6 +303,20 @@ export default async function NeighborhoodPage(
           className="bg-white py-16 sm:py-20"
         >
           <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+            {/* New Coverage Card */}
+            <div className="mb-12 rounded-2xl border border-navy-100 bg-navy-50/50 p-8 text-center sm:p-10">
+              <h3 className="mb-4 text-2xl font-bold text-navy-950">
+                {neighborhood.name} ve Çevresinde Geniş Hizmet Ağı
+              </h3>
+              <p className="mx-auto max-w-2xl text-[var(--muted-foreground)]">
+                Bozkurt Çilingir olarak sadece {neighborhood.name} ile sınırlı kalmıyor, {district.name} ilçesindeki komşu mahallelere de aynı hızda hizmet götürüyoruz. 
+                <strong className="mx-1 text-navy-800">
+                  {nearbyNeighborhoods.map((n) => n.name).join(", ")}
+                </strong>
+                gibi çevre mahallelerde de 15 dakikada servis garantimiz geçerlidir.
+              </p>
+            </div>
+
             <div className="mb-10 text-center">
               <h2
                 id="nearby-heading"

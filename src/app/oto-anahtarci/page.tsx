@@ -20,6 +20,8 @@ import {
 import { otoServices } from "@/lib/data/services-oto";
 import { otoDistricts } from "@/lib/data/districts-oto";
 import FaqSectionOto from "@/components/FaqSectionOto";
+import Testimonials from "@/components/Testimonials";
+import { otoTestimonials } from "@/lib/data/testimonials-oto";
 import MobileBottomBar from "@/components/MobileBottomBar";
 import CallButton from "@/components/CallButton";
 import WhatsAppButton from "@/components/WhatsAppButton";
@@ -420,10 +422,13 @@ export default function OtoAnahtarciPage() {
         </div>
       </section>
 
-      {/* ── 5. FAQ ──────────────────────────────────────────────────────── */}
+      {/* ── 5. TESTIMONIALS ─────────────────────────────────────────────── */}
+      <Testimonials division="oto-anahtarci" testimonials={otoTestimonials} />
+
+      {/* ── 6. FAQ ──────────────────────────────────────────────────────── */}
       <FaqSectionOto />
 
-      {/* ── 6. FINAL CTA BANNER ─────────────────────────────────────────── */}
+      {/* ── 7. FINAL CTA BANNER ─────────────────────────────────────────── */}
       <section
         id="iletisim"
         aria-labelledby="oto-cta-heading"

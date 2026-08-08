@@ -19,6 +19,8 @@ import {
 import { cilingirServices } from "@/lib/data/services-cilingir";
 import { cilingirDistricts } from "@/lib/data/districts-cilingir";
 import FaqSection from "@/components/FaqSection";
+import Testimonials from "@/components/Testimonials";
+import { cilingirTestimonials } from "@/lib/data/testimonials-cilingir";
 import MobileBottomBar from "@/components/MobileBottomBar";
 import CallButton from "@/components/CallButton";
 import WhatsAppButton from "@/components/WhatsAppButton";
@@ -424,10 +426,13 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* ── 5. FAQ ──────────────────────────────────────────────────────── */}
+      {/* ── 5. TESTIMONIALS ─────────────────────────────────────────────── */}
+      <Testimonials division="cilingir" testimonials={cilingirTestimonials} />
+
+      {/* ── 6. FAQ ──────────────────────────────────────────────────────── */}
       <FaqSection />
 
-      {/* ── 6. FINAL CTA BANNER ─────────────────────────────────────────── */}
+      {/* ── 7. FINAL CTA BANNER ─────────────────────────────────────────── */}
       <section
         id="iletisim"
         aria-labelledby="cta-heading"

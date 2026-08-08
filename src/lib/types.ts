@@ -50,3 +50,15 @@ export interface Service {
  * Discriminator for which business division a service belongs to.
  */
 export type ServiceDivision = "cilingir" | "oto-anahtarci";
+
+/**
+ * Represents a customer testimonial.
+ */
+export interface Testimonial {
+  id: string;
+  name: string;
+  location: string;
+  rating: number;
+  text: string;
+  districtSlug?: string;
+}

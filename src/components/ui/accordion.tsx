@@ -35,7 +35,7 @@ function AccordionTrigger({
         data-slot="accordion-trigger"
         className={cn(
           "flex flex-1 items-start justify-between gap-4 py-5 text-left text-base font-medium",
-          "text-[var(--foreground)] transition-all outline-none",
+          "text-navy-950 transition-all outline-none",
           "hover:text-navy-700 focus-visible:rounded-sm focus-visible:ring-2 focus-visible:ring-navy-500/50",
           "disabled:pointer-events-none disabled:opacity-50",
           "[&[data-state=open]>svg]:rotate-180 [&[data-state=open]]:text-navy-700",
