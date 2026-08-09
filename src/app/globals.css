@@ -16,6 +16,13 @@
   to   { opacity: 1; transform: translateY(0); }
 }
 
+/* ─── Animated gradient text (Hero headline) ────────────────────────────────── */
+@keyframes gradient-shift {
+  0%   { background-position: 0% 50%; }
+  50%  { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
 /* ─────────────────────────────────────────────────────────────────────────────
    BOZKURT ÇİLİNGİR — Design Token System
    Two brand palettes share a single neutral base so both divisions feel

@@ -23,6 +23,7 @@ import { otoTestimonials } from "@/lib/data/testimonials-oto";
 import MobileBottomBar from "@/components/MobileBottomBar";
 import CallButton from "@/components/CallButton";
 import WhatsAppButton from "@/components/WhatsAppButton";
+import HeroOto from "@/components/oto-anahtarci/HeroOto";
 
 // ─── Constants ────────────────────────────────────────────────────────────────
 
@@ -122,102 +123,7 @@ export default function OtoAnahtarciPage() {
         dangerouslySetInnerHTML={{ __html: JSON.stringify(localBusinessSchema) }}
       />
       {/* ── 1. HERO ─────────────────────────────────────────────────────── */}
-      <section
-        id="hero"
-        aria-label="Oto Anahtarcı hizmetleri hakkında"
-        className="relative isolate overflow-hidden bg-amber-950 pb-24 pt-20 sm:pb-32 sm:pt-28"
-      >
-        {/* Dot-grid texture */}
-        <div
-          aria-hidden
-          className="pointer-events-none absolute inset-0"
-          style={{
-            backgroundImage:
-              "radial-gradient(circle at 1px 1px, rgba(255,255,255,0.04) 1px, transparent 0)",
-            backgroundSize: "28px 28px",
-          }}
-        />
-        {/* Amber radial glow */}
-        <div
-          aria-hidden
-          className="pointer-events-none absolute inset-0"
-          style={{
-            background:
-              "radial-gradient(ellipse 70% 60% at 50% -10%, oklch(57% 0.165 48 / 0.40) 0%, transparent 70%)",
-          }}
-        />
-
-        <div className="relative mx-auto max-w-4xl px-4 text-center sm:px-6 lg:px-8">
-          {/* Badge */}
-          <div
-            className="mb-6 inline-flex items-center gap-2 rounded-full border border-amber-600/40 bg-amber-900/50 px-4 py-1.5 text-xs font-medium text-amber-200"
-            style={{ animation: "fade-up 0.4s ease-out both" }}
-          >
-            <Car className="h-3.5 w-3.5" />
-            Avrupa Yakası — 25 İlçe — Tüm Markalar
-          </div>
-
-          {/* Headline */}
-          <h1
-            className="text-4xl font-extrabold leading-tight tracking-tight text-white sm:text-5xl lg:text-6xl"
-            style={{ animation: "fade-up 0.5s 0.05s ease-out both" }}
-          >
-            Avrupa Yakası&apos;nda{" "}
-            <span className="text-amber-400">Oto Anahtarcı</span>{" "}
-            Hizmeti
-          </h1>
-
-          {/* Sub-headline */}
-          <p
-            className="mx-auto mt-5 max-w-2xl text-lg leading-relaxed text-amber-100/75 sm:text-xl"
-            style={{ animation: "fade-up 0.5s 0.10s ease-out both" }}
-          >
-            Kayıp anahtar yapımı, immobilizer programlama ve araç kapı açma.
-            Teknisyenimiz{" "}
-            <strong className="font-semibold text-white">adresinize gelir</strong>{" "}
-            — çekici gerekmez.
-          </p>
-
-          {/* Trust badges */}
-          <ul
-            className="mt-7 flex flex-wrap justify-center gap-3 text-sm text-amber-200/70"
-            style={{ animation: "fade-up 0.5s 0.15s ease-out both" }}
-            aria-label="Hizmet özellikleri"
-          >
-            {[
-              "✓ Araç Başında Programlama",
-              "✓ Tüm Markalar",
-              "✓ OBD Ekipmanı",
-              "✓ Çekici Masrafı Yok",
-            ].map((badge) => (
-              <li key={badge}>{badge}</li>
-            ))}
-          </ul>
-
-          {/* CTAs */}
-          <div
-            className="mt-10 flex flex-col items-center justify-center gap-4 sm:flex-row"
-            style={{ animation: "fade-up 0.5s 0.20s ease-out both" }}
-          >
-            <CallButton
-              section="oto"
-              data-phone-cta="hero"
-              className="inline-flex w-full items-center justify-center gap-3 rounded-2xl bg-amber-500 px-8 py-4 text-base font-bold text-amber-950 shadow-lg shadow-amber-900/40 transition-all hover:bg-amber-400 hover:scale-[1.02] active:scale-[0.98] sm:w-auto"
-            >
-              <Phone className="h-5 w-5" strokeWidth={2.5} />
-              {PHONE}
-            </CallButton>
-            <WhatsAppButton
-              section="oto"
-              data-wa-cta="hero"
-              className="inline-flex w-full items-center justify-center gap-3 rounded-2xl border border-[#25D366]/40 bg-[#25D366]/10 px-8 py-4 text-base font-bold text-[#25D366] shadow-lg shadow-black/20 transition-all hover:bg-[#25D366]/20 hover:scale-[1.02] active:scale-[0.98] sm:w-auto"
-            >
-              <WhatsAppIcon className="h-5 w-5" strokeWidth={2.5} />
-              WhatsApp ile Yaz
-            </WhatsAppButton>
-          </div>
-        </div>
-      </section>
+      <HeroOto phone={PHONE} />
 
       {/* ── 2. SERVICES GRID ────────────────────────────────────────────── */}
       <section

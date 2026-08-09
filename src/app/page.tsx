@@ -13,7 +13,6 @@ import { Phone,
   Star,
   ChevronRight,
   CheckCircle2 } from "lucide-react";
-import WhatsAppIcon from "@/components/WhatsAppIcon";
 import { cilingirServices } from "@/lib/data/services-cilingir";
 import { cilingirDistricts } from "@/lib/data/districts-cilingir";
 import FaqSection from "@/components/FaqSection";
@@ -22,6 +21,8 @@ import { cilingirTestimonials } from "@/lib/data/testimonials-cilingir";
 import MobileBottomBar from "@/components/MobileBottomBar";
 import CallButton from "@/components/CallButton";
 import WhatsAppButton from "@/components/WhatsAppButton";
+import WhatsAppIcon from "@/components/WhatsAppIcon";
+import HeroCilingir from "@/components/cilingir/HeroCilingir";
 
 // ─── Constants ────────────────────────────────────────────────────────────────
 
@@ -121,106 +122,7 @@ export default function HomePage() {
         dangerouslySetInnerHTML={{ __html: JSON.stringify(localBusinessSchema) }}
       />
       {/* ── 1. HERO ─────────────────────────────────────────────────────── */}
-      <section
-        id="hero"
-        aria-label="Çilingir hizmetleri hakkında"
-        className="relative isolate overflow-hidden bg-navy-950 pb-24 pt-20 sm:pb-32 sm:pt-28"
-      >
-        {/* Dot-grid texture */}
-        <div
-          aria-hidden
-          className="pointer-events-none absolute inset-0"
-          style={{
-            backgroundImage:
-              "radial-gradient(circle at 1px 1px, rgba(255,255,255,0.045) 1px, transparent 0)",
-            backgroundSize: "28px 28px",
-          }}
-        />
-        {/* Radial glow */}
-        <div
-          aria-hidden
-          className="pointer-events-none absolute inset-0"
-          style={{
-            background:
-              "radial-gradient(ellipse 70% 60% at 50% -10%, oklch(43% 0.085 255 / 0.35) 0%, transparent 70%)",
-          }}
-        />
-
-        <div className="relative mx-auto max-w-4xl px-4 text-center sm:px-6 lg:px-8">
-          {/* Badge */}
-          <div
-            className="mb-6 inline-flex items-center gap-2 rounded-full border border-navy-600/40 bg-navy-800/50 px-4 py-1.5 text-xs font-medium text-navy-200"
-            style={{ animation: "fade-up 0.4s ease-out both" }}
-          >
-            <span className="relative flex h-2 w-2">
-              <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-navy-300 opacity-75" />
-              <span className="relative inline-flex h-2 w-2 rounded-full bg-navy-400" />
-            </span>
-            Esenyurt • Beylikdüzü • Bahçeşehir
-          </div>
-
-          {/* Headline */}
-          <h1
-            className="text-4xl font-extrabold leading-tight tracking-tight text-white sm:text-5xl lg:text-6xl"
-            style={{ animation: "fade-up 0.5s 0.05s ease-out both" }}
-          >
-            7/24 Acil{" "}
-            <span className="text-navy-300">Çilingir</span>{" "}
-            Hizmeti
-          </h1>
-
-          {/* Sub-headline */}
-          <p
-            className="mx-auto mt-5 max-w-2xl text-lg leading-relaxed text-navy-200/80 sm:text-xl"
-            style={{ animation: "fade-up 0.5s 0.10s ease-out both" }}
-          >
-            Esenyurt, Beylikdüzü ve Bahçeşehir&apos;de kapı açma, kilit
-            değişimi ve tüm acil çilingir ihtiyaçlarınız için{" "}
-            <strong className="font-semibold text-white">15 dakika içinde</strong> kapınızdayız.
-          </p>
-
-          {/* Trust badges */}
-          <ul
-            className="mt-7 flex flex-wrap justify-center gap-3 text-sm text-navy-200/70"
-            style={{ animation: "fade-up 0.5s 0.15s ease-out both" }}
-            aria-label="Hizmet özellikleri"
-          >
-            {[
-              "✓ Hasarsız Açma",
-              "✓ Lisanslı Ustalar",
-              "✓ Gece Hizmet",
-              "✓ Şeffaf Fiyat",
-            ].map((badge) => (
-              <li key={badge} className="flex items-center gap-1">
-                {badge}
-              </li>
-            ))}
-          </ul>
-
-          {/* CTAs */}
-          <div
-            className="mt-10 flex flex-col items-center justify-center gap-4 sm:flex-row"
-            style={{ animation: "fade-up 0.5s 0.20s ease-out both" }}
-          >
-            <CallButton
-              section="cilingir"
-              data-phone-cta="hero"
-              className="inline-flex w-full items-center justify-center gap-3 rounded-2xl bg-white px-8 py-4 text-base font-bold text-navy-900 shadow-lg shadow-black/25 transition-all hover:bg-navy-50 hover:scale-[1.02] active:scale-[0.98] sm:w-auto"
-            >
-              <Phone className="h-5 w-5" strokeWidth={2.5} />
-              {PHONE}
-            </CallButton>
-            <WhatsAppButton
-              section="cilingir"
-              data-wa-cta="hero"
-              className="inline-flex w-full items-center justify-center gap-3 rounded-2xl border border-[#25D366]/40 bg-[#25D366]/10 px-8 py-4 text-base font-bold text-[#25D366] shadow-lg shadow-black/20 transition-all hover:bg-[#25D366]/20 hover:scale-[1.02] active:scale-[0.98] sm:w-auto"
-            >
-              <WhatsAppIcon className="h-5 w-5" strokeWidth={2.5} />
-              WhatsApp ile Yaz
-            </WhatsAppButton>
-          </div>
-        </div>
-      </section>
+      <HeroCilingir phone={PHONE} />
 
       {/* ── 2. SERVICES GRID ────────────────────────────────────────────── */}
       <section
