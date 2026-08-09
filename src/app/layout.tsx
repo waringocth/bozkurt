@@ -27,8 +27,8 @@ export const metadata: Metadata = {
 };
 
 // Placeholder phone numbers — replace with real values via env or CMS
-const CILINGIR_PHONE     = "0000 000 00 00";
-const OTO_ANAHTARCI_PHONE = "0000 000 00 00";
+const CILINGIR_PHONE     = "0535 310 61 39";
+const OTO_ANAHTARCI_PHONE = "0535 310 61 39";
 
 export default function RootLayout({ children }: LayoutProps<"/">) {
   return (

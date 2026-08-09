@@ -1,7 +1,8 @@
 import { notFound } from "next/navigation";
 import type { Metadata } from "next";
 import Link from "next/link";
-import { MapPin, ChevronRight, Phone, MessageCircle } from "lucide-react";
+import { MapPin, ChevronRight, Phone } from "lucide-react";
+import WhatsAppIcon from "@/components/WhatsAppIcon";
 
 import { cilingirDistricts } from "@/lib/data/districts-cilingir";
 import ServiceGridCilingir from "@/components/cilingir/ServiceGridCilingir";
@@ -14,7 +15,7 @@ import WhatsAppButton from "@/components/WhatsAppButton";
 // ─── Constants ────────────────────────────────────────────────────────────────
 
 const BASE_URL = "https://bozkurtcilingir.com";
-const PHONE = process.env.NEXT_PUBLIC_PHONE_CILINGIR || "0000 000 00 00";
+const PHONE = process.env.NEXT_PUBLIC_PHONE_CILINGIR || "0535 310 61 39";
 
 // ─── Static params ────────────────────────────────────────────────────────────
 
@@ -71,7 +72,7 @@ function localBusinessSchema(
     "@type": "LocalBusiness",
     name: "Bozkurt Çilingir",
     description: `${districtName} ${neighborhoodName}'nde 7/24 profesyonel çilingir ve kapı açma hizmetleri.`,
-    telephone: "+905000000000",
+    telephone: "+905353106139",
     url: `${BASE_URL}/cilingir/${districtSlug}/${neighborhoodSlug}`,
     openingHours: "Mo-Su 00:00-23:59",
     areaServed: [
@@ -253,7 +254,7 @@ export default async function NeighborhoodPage(
                 data-wa-cta="neighborhood-hero"
                 className="flex items-center justify-center gap-2.5 rounded-2xl border border-[#25D366]/40 bg-[#25D366]/10 px-6 py-3.5 text-sm font-bold text-[#25D366] transition-all hover:bg-[#25D366]/20 hover:scale-[1.02] active:scale-[0.97]"
               >
-                <MessageCircle className="h-4 w-4" strokeWidth={2.5} />
+                <WhatsAppIcon className="h-4 w-4" strokeWidth={2.5} />
                 WhatsApp
               </WhatsAppButton>
             </div>

@@ -21,8 +21,8 @@ const WhatsAppButton = React.forwardRef<HTMLAnchorElement, WhatsAppButtonProps>(
 
   const waPhone =
     section === "cilingir"
-      ? process.env.NEXT_PUBLIC_WHATSAPP_CILINGIR || "905000000000"
-      : process.env.NEXT_PUBLIC_WHATSAPP_OTO || "905000000000";
+      ? process.env.NEXT_PUBLIC_WHATSAPP_CILINGIR || "905353106139"
+      : process.env.NEXT_PUBLIC_WHATSAPP_OTO || "905353106139";
       
   const cleanPhone = waPhone.replace(/\s/g, "").replace(/^\+/, "");
   

@@ -62,8 +62,8 @@ function FooterLink({ href, children }: { href: string; children: React.ReactNod
 export default function Footer({
   address = "İstanbul, Türkiye",
 }: FooterProps) {
-  const cilingirPhone = process.env.NEXT_PUBLIC_PHONE_CILINGIR || "0000 000 00 00";
-  const otoAnahtarciPhone = process.env.NEXT_PUBLIC_PHONE_OTO || "0000 000 00 00";
+  const cilingirPhone = process.env.NEXT_PUBLIC_PHONE_CILINGIR || "0535 310 61 39";
+  const otoAnahtarciPhone = process.env.NEXT_PUBLIC_PHONE_OTO || "0535 310 61 39";
   return (
     <footer className="mt-auto border-t border-white/8 bg-navy-950 text-white">
       {/* ── Main grid ───────────────────────────────────────────────────── */}

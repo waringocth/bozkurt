@@ -1,4 +1,5 @@
-import { Phone, MessageCircle } from "lucide-react";
+import { Phone } from "lucide-react";
+import WhatsAppIcon from "@/components/WhatsAppIcon";
 import { cn } from "@/lib/utils";
 import CallButton from "@/components/CallButton";
 import WhatsAppButton from "@/components/WhatsAppButton";
@@ -58,7 +59,7 @@ export default function MobileBottomBar({
           data-wa-cta="mobile-bottom-bar"
           className="flex flex-1 items-center justify-center gap-2.5 py-4 text-sm font-semibold text-[#25D366] transition-colors active:bg-white/10"
         >
-          <MessageCircle className="h-5 w-5" strokeWidth={2.5} />
+          <WhatsAppIcon className="h-5 w-5" strokeWidth={2.5} />
           WhatsApp
         </WhatsAppButton>
       </div>

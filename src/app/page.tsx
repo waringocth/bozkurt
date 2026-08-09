@@ -1,8 +1,6 @@
 import { Metadata } from "next";
 import Link from "next/link";
-import {
-  Phone,
-  MessageCircle,
+import { Phone,
   DoorOpen,
   Lock,
   Shield,
@@ -14,8 +12,8 @@ import {
   Clock,
   Star,
   ChevronRight,
-  CheckCircle2,
-} from "lucide-react";
+  CheckCircle2 } from "lucide-react";
+import WhatsAppIcon from "@/components/WhatsAppIcon";
 import { cilingirServices } from "@/lib/data/services-cilingir";
 import { cilingirDistricts } from "@/lib/data/districts-cilingir";
 import FaqSection from "@/components/FaqSection";
@@ -27,7 +25,7 @@ import WhatsAppButton from "@/components/WhatsAppButton";
 
 // ─── Constants ────────────────────────────────────────────────────────────────
 
-const PHONE = process.env.NEXT_PUBLIC_PHONE_CILINGIR || "0000 000 00 00";
+const PHONE = process.env.NEXT_PUBLIC_PHONE_CILINGIR || "0535 310 61 39";
 
 // ─── Icon map ─────────────────────────────────────────────────────────────────
 
@@ -217,7 +215,7 @@ export default function HomePage() {
               data-wa-cta="hero"
               className="inline-flex w-full items-center justify-center gap-3 rounded-2xl border border-[#25D366]/40 bg-[#25D366]/10 px-8 py-4 text-base font-bold text-[#25D366] shadow-lg shadow-black/20 transition-all hover:bg-[#25D366]/20 hover:scale-[1.02] active:scale-[0.98] sm:w-auto"
             >
-              <MessageCircle className="h-5 w-5" strokeWidth={2.5} />
+              <WhatsAppIcon className="h-5 w-5" strokeWidth={2.5} />
               WhatsApp ile Yaz
             </WhatsAppButton>
           </div>
@@ -491,7 +489,7 @@ export default function HomePage() {
               data-wa-cta="cta-banner"
               className="inline-flex w-full items-center justify-center gap-3 rounded-2xl border-2 border-[#25D366]/50 bg-[#25D366]/10 px-10 py-4 text-lg font-bold text-[#25D366] transition-all hover:bg-[#25D366]/20 hover:scale-[1.03] active:scale-[0.97] sm:w-auto"
             >
-              <MessageCircle className="h-5 w-5" strokeWidth={2.5} />
+              <WhatsAppIcon className="h-5 w-5" strokeWidth={2.5} />
               WhatsApp
             </WhatsAppButton>
           </div>

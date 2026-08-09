@@ -1,7 +1,8 @@
 import { notFound } from "next/navigation";
 import type { Metadata } from "next";
 import Link from "next/link";
-import { MapPin, ChevronRight, Phone, MessageCircle } from "lucide-react";
+import { MapPin, ChevronRight, Phone } from "lucide-react";
+import WhatsAppIcon from "@/components/WhatsAppIcon";
 
 import { otoDistricts } from "@/lib/data/districts-oto";
 import ServiceGridOto from "@/components/oto-anahtarci/ServiceGridOto";
@@ -18,7 +19,7 @@ import { otoTestimonials } from "@/lib/data/testimonials-oto";
 // ─── Constants ────────────────────────────────────────────────────────────────
 
 const BASE_URL = "https://bozkurtcilingir.com";
-const PHONE = process.env.NEXT_PUBLIC_PHONE_OTO || "0000 000 00 00";
+const PHONE = process.env.NEXT_PUBLIC_PHONE_OTO || "0535 310 61 39";
 
 // ─── Static params ────────────────────────────────────────────────────────────
 
@@ -61,7 +62,7 @@ function localBusinessSchema(districtName: string, slug: string) {
     "@type": "LocalBusiness",
     name: "Bozkurt Oto Anahtarcı",
     description: `${districtName}'de 7/24 profesyonel oto anahtarcı ve araç kapı açma hizmetleri.`,
-    telephone: "+905000000000",
+    telephone: "+905353106139",
     url: `${BASE_URL}/oto-anahtarci/${slug}`,
     openingHours: "Mo-Su 00:00-23:59",
     areaServed: {
@@ -204,7 +205,7 @@ export default async function DistrictOtoPage(props: PageProps<"/oto-anahtarci/[
                 data-wa-cta="district-hero"
                 className="flex items-center justify-center gap-2.5 rounded-2xl border border-[#25D366]/40 bg-[#25D366]/10 px-6 py-3.5 text-sm font-bold text-[#25D366] transition-all hover:bg-[#25D366]/20 hover:scale-[1.02] active:scale-[0.97]"
               >
-                <MessageCircle className="h-4 w-4" strokeWidth={2.5} />
+                <WhatsAppIcon className="h-4 w-4" strokeWidth={2.5} />
                 WhatsApp
               </WhatsAppButton>
             </div>

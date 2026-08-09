@@ -1,5 +1,6 @@
 import Link from "next/link";
-import { Phone, MessageCircle } from "lucide-react";
+import { Phone } from "lucide-react";
+import WhatsAppIcon from "@/components/WhatsAppIcon";
 import CallButton from "@/components/CallButton";
 import WhatsAppButton from "@/components/WhatsAppButton";
 
@@ -16,7 +17,7 @@ export default function CtaBannerOto({
   eyebrow    = "Acil Durum?",
   caption,
 }: CtaBannerOtoProps) {
-  const phone = process.env.NEXT_PUBLIC_PHONE_OTO || "0000 000 00 00";
+  const phone = process.env.NEXT_PUBLIC_PHONE_OTO || "0535 310 61 39";
 
   return (
     <section
@@ -72,7 +73,7 @@ export default function CtaBannerOto({
             data-wa-cta="cta-banner"
             className="inline-flex w-full items-center justify-center gap-3 rounded-2xl border-2 border-[#25D366]/50 bg-[#25D366]/10 px-10 py-4 text-lg font-bold text-[#25D366] transition-all hover:bg-[#25D366]/20 hover:scale-[1.03] active:scale-[0.97] sm:w-auto"
           >
-            <MessageCircle className="h-5 w-5" strokeWidth={2.5} />
+            <WhatsAppIcon className="h-5 w-5" strokeWidth={2.5} />
             WhatsApp
           </WhatsAppButton>
         </div>

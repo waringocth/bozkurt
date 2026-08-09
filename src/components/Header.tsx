@@ -138,8 +138,8 @@ export default function Header(_props: HeaderProps) {
               <Phone className="h-3.5 w-3.5" strokeWidth={2.5} />
               <span className="hidden sm:inline">
                 {isAuto 
-                  ? process.env.NEXT_PUBLIC_PHONE_OTO || "0000 000 00 00"
-                  : process.env.NEXT_PUBLIC_PHONE_CILINGIR || "0000 000 00 00"
+                  ? process.env.NEXT_PUBLIC_PHONE_OTO || "0535 310 61 39"
+                  : process.env.NEXT_PUBLIC_PHONE_CILINGIR || "0535 310 61 39"
                 }
               </span>
               <span className="sm:hidden">Ara</span>

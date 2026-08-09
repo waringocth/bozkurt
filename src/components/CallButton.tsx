@@ -20,8 +20,8 @@ const CallButton = React.forwardRef<HTMLAnchorElement, CallButtonProps>(
 
   const phone =
     section === "cilingir"
-      ? process.env.NEXT_PUBLIC_PHONE_CILINGIR || "0000 000 00 00"
-      : process.env.NEXT_PUBLIC_PHONE_OTO || "0000 000 00 00";
+      ? process.env.NEXT_PUBLIC_PHONE_CILINGIR || "0535 310 61 39"
+      : process.env.NEXT_PUBLIC_PHONE_OTO || "0535 310 61 39";
 
   const phoneHref = `tel:${phone.replace(/\s/g, "")}`;
 
