@@ -179,6 +179,26 @@ export default async function DistrictOtoPage(props: PageProps<"/oto-anahtarci/[
                 Hizmetleri
               </h1>
 
+              {/* ── Compact CTA row — visible on mobile before scroll ── */}
+              <div className="mt-5 flex flex-wrap gap-2.5 lg:hidden">
+                <CallButton
+                  section="oto"
+                  data-phone-cta="district-hero-inline"
+                  className="inline-flex items-center gap-2 rounded-xl bg-amber-500 px-5 py-2.5 text-sm font-bold text-amber-950 shadow-md shadow-amber-900/40 transition-all hover:bg-amber-400 active:scale-[0.97]"
+                >
+                  <Phone className="h-4 w-4" strokeWidth={2.5} />
+                  Hemen Ara
+                </CallButton>
+                <WhatsAppButton
+                  section="oto"
+                  data-wa-cta="district-hero-inline"
+                  className="inline-flex items-center gap-2 rounded-xl bg-[#25D366] px-5 py-2.5 text-sm font-bold text-white shadow-md shadow-[#25D366]/25 transition-all hover:bg-[#1ebe5d] active:scale-[0.97]"
+                >
+                  <WhatsAppIcon className="h-4 w-4" />
+                  WhatsApp
+                </WhatsAppButton>
+              </div>
+
               <p className="mt-5 text-lg leading-relaxed text-amber-200/75">
                 {district.name} ilçesi sınırları içinde aracınızın anahtarını kaybettiğinizde veya yedek anahtar yaptırmak istediğinizde, sanayi sitesine veya servise gitmenize gerek yok. İmmobilizer programlama, çipli anahtar kopyalama ve hasarsız oto kapı açma hizmetlerimiz için tam donanımlı teknisyenimiz doğrudan <strong className="text-white">bulunduğunuz adrese geliyor</strong>. İster {district.name} merkezde, ister çevre mahallelerde olun; {district.neighborhoodCount} mahallenin tamamında çekici masrafı ödemeden 7/24 hızlı ve garantili çözüm sunuyoruz.
               </p>

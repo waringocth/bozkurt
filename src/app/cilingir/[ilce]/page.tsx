@@ -179,6 +179,26 @@ export default async function DistrictPage(props: PageProps<"/cilingir/[ilce]">)
                 Hizmetleri
               </h1>
 
+              {/* ── Compact CTA row — visible on mobile before scroll ── */}
+              <div className="mt-5 flex flex-wrap gap-2.5 lg:hidden">
+                <CallButton
+                  section="cilingir"
+                  data-phone-cta="district-hero-inline"
+                  className="inline-flex items-center gap-2 rounded-xl bg-white px-5 py-2.5 text-sm font-bold text-navy-900 shadow-md transition-all hover:bg-navy-50 active:scale-[0.97]"
+                >
+                  <Phone className="h-4 w-4" strokeWidth={2.5} />
+                  Hemen Ara
+                </CallButton>
+                <WhatsAppButton
+                  section="cilingir"
+                  data-wa-cta="district-hero-inline"
+                  className="inline-flex items-center gap-2 rounded-xl bg-[#25D366] px-5 py-2.5 text-sm font-bold text-white shadow-md shadow-[#25D366]/25 transition-all hover:bg-[#1ebe5d] active:scale-[0.97]"
+                >
+                  <WhatsAppIcon className="h-4 w-4" />
+                  WhatsApp
+                </WhatsAppButton>
+              </div>
+
               <p className="mt-5 text-lg leading-relaxed text-navy-200/75">
                 {district.name} ilçesi genelinde kapı açma, kilit değişimi, çelik kapı tamiri ve kasa açma gibi tüm profesyonel çilingir ihtiyaçlarınız için uzman kadromuzla yanınızdayız. İster gece yarısı acil bir durumda, ister planlı bir kilit yenileme işleminde olun, bölgeye hakim gezici araçlarımızla <strong className="text-white">en fazla 15 dakika içinde</strong> adresinize ulaşıyoruz. {district.name}'un en hareketli noktalarından en sakin mahallelerine kadar toplam {district.neighborhoodCount} mahallede kesintisiz, hasarsız ve garantili 7/24 hizmet sunuyoruz.
               </p>
