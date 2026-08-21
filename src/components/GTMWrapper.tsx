@@ -1,33 +1,9 @@
-"use client";
-
 import Script from "next/script";
-import { useEffect, useState } from "react";
 
 export default function GTMWrapper() {
-  const [hasConsent, setHasConsent] = useState(false);
   const gtmId = process.env.NEXT_PUBLIC_GTM_ID;
 
-  useEffect(() => {
-    // Check initial consent
-    const consent = localStorage.getItem("cookie_consent");
-    if (consent === "granted") {
-      setHasConsent(true);
-    }
-
-    // Intercept dataLayer.push to detect when consent is granted in the current session
-    // This avoids needing to modify the existing CookieConsent component
-    window.dataLayer = window.dataLayer || [];
-    const originalPush = window.dataLayer.push.bind(window.dataLayer);
-    
-    window.dataLayer.push = function (...args: any[]) {
-      if (args[0] && typeof args[0] === "object" && args[0].event === "cookie_consent_granted") {
-        setHasConsent(true);
-      }
-      return originalPush(...args);
-    };
-  }, []);
-
-  if (!gtmId || !hasConsent) return null;
+  if (!gtmId) return null;
 
   return (
     <>

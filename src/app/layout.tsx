@@ -3,7 +3,6 @@ import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
-import CookieConsent from "@/components/CookieConsent";
 import GTMWrapper from "@/components/GTMWrapper";
 
 const geistSans = Geist({
@@ -47,7 +46,6 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
           otoAnahtarciPhone={OTO_ANAHTARCI_PHONE}
           address="İstanbul, Türkiye"
         />
-        <CookieConsent />
         <GTMWrapper />
       </body>
     </html>
